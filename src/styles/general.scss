@@ -2,6 +2,11 @@
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
+// RESET
 body {
     background-color: aquamarine;
+}
+
+img {
+    max-width: 100%;
 }
