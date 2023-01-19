@@ -1,10 +1,11 @@
 <script>
 import axios from 'axios';
+import ProjectCard from './ProjectCard.vue';
 
 export default {
     name: 'AppMain',
     components: {
-
+        ProjectCard
     },
     data() {
         return {
@@ -28,9 +29,15 @@ export default {
 </script>
 
 <template>
-    <ul>
-        <li v-for="project in projects">{{ project.title }}</li>
-    </ul>
+    <section class="mt-4">
+        <div class="container">
+            <div class="row row-cols-3 g-3">
+                <div class="col" v-for="project in projects">
+                    <ProjectCard :project="project" :key="project.id" />
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
 <style lang="scss">
