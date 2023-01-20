@@ -1,10 +1,10 @@
-<!-- <script>
+<script>
 import axios from 'axios';
-import ProjectCard from './ProjectCard.vue';
+import ProjectCard from '../components/ProjectCard.vue';
 import { store } from '../store';
 
 export default {
-    name: 'AppMain',
+    name: 'HomePage',
     components: {
         ProjectCard
     },
@@ -33,6 +33,7 @@ export default {
 <template>
     <section class="mt-4">
         <div class="container">
+            <h1 class="text-center text-light mb-3">I nostri progetti</h1>
             <div class="row row-cols-3 g-3">
                 <div class="col" v-for="project in projects">
                     <ProjectCard :project="project" :key="project.id" />
@@ -44,4 +45,4 @@ export default {
 
 <style lang="scss">
 @use "../styles/general.scss" as *;
-</style> -->
+</style>

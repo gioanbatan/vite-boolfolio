@@ -11,7 +11,7 @@ export default {
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
 
-                <a class="navbar-brand" href="#">Navbar</a>
+                <router-link class="navbar-brand" :to="{ name: HomePage }">Navbar</router-link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,7 +19,13 @@ export default {
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <router-link class="nav-link" :to="{ name: 'home' }">Home<span
+                                    class="sr-only"></span></router-link>
+                        </li>
+
+                        <li class="nav-item active">
+                            <router-link class="nav-link" :to="{ name: 'aboutus' }">About Us<span
+                                    class="sr-only"></span></router-link>
                         </li>
                     </ul>
                 </div>
