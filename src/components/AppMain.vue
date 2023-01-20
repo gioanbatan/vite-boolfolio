@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import ProjectCard from './ProjectCard.vue';
+import { store } from '../store';
 
 export default {
     name: 'AppMain',
@@ -10,6 +11,7 @@ export default {
     data() {
         return {
             projects: [],
+            store
         }
     },
     created() {
@@ -17,11 +19,11 @@ export default {
     },
     methods: {
         getProjects() {
-            console.log("PRIMA", this.projects);
+            // console.log("PRIMA", this.projects);
 
-            axios.get(`http://127.0.0.1:8000/api/projects`).then(resp => {
+            axios.get(`${store.apiBaseUrl}/api/projects`).then(resp => {
                 this.projects = resp.data.results;
-                console.log("RISPOSTA", resp.data.results);
+                // console.log("RISPOSTA", resp.data.results);
             });
         }
     },

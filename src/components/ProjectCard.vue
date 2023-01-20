@@ -1,6 +1,13 @@
 <script>
+import { store } from '../store';
+
 export default {
     name: 'ProjectCard',
+    data() {
+        return {
+            store
+        }
+    },
     props: {
         project: Object,
     }
@@ -10,8 +17,8 @@ export default {
 
 <template>
     <div class="card">
-        <img v-if="project.cover_image" class="card-img-top"
-            :src="`http://127.0.0.1:8000/storage/${project.cover_image}`" :alt="`Cover image di ${project.title}`">
+        <img v-if="project.cover_image" class="card-img-top" :src="`${store.apiBaseUrl}/storage/${project.cover_image}`"
+            :alt="`Cover image di ${project.title}`">
         <div v-else class="text-center p-2">
             No image
         </div>
