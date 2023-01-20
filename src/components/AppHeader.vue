@@ -11,7 +11,7 @@ export default {
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
 
-                <router-link class="navbar-brand" :to="{ name: HomePage }">Navbar</router-link>
+                <router-link class="navbar-brand" :to="{ name: 'home' }">MyProjects</router-link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@ export default {
                         </li>
 
                         <li class="nav-item active">
-                            <router-link class="nav-link" :to="{ name: 'aboutus' }">About Us<span
+                            <router-link class="nav-link" :to="{ name: 'about-us' }">About Us<span
                                     class="sr-only"></span></router-link>
                         </li>
                     </ul>
