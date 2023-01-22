@@ -10,20 +10,26 @@ export default {
     },
     data() {
         return {
+            store,
             projects: [],
-            store
+            current_page: 1,
+            pages_qty: null,
+            elements_qty: null,
         }
     },
     created() {
-        this.getProjects();
+        this.getProjects(1);
     },
     methods: {
-        getProjects() {
-            // console.log("PRIMA", this.projects);
+        getProjects(page) {
+            console.log("PRIMA", page);
 
-            axios.get(`${store.apiBaseUrl}/api/projects`).then(resp => {
-                this.projects = resp.data.results;
-                // console.log("RISPOSTA", resp.data.results);
+            axios.get(`${store.apiBaseUrl}/api/projects`, { params: { page: page } }).then(resp => {
+                this.projects = resp.data.results.data;
+                this.pages_qty = resp.data.results.last_page;
+                this.elements_qty = resp.data.results.total;
+
+                console.log("quante", this.pages_qty);
             });
         }
     },
@@ -39,7 +45,22 @@ export default {
                     <ProjectCard :project="project" :key="project.id" />
                 </div>
             </div>
+
+            <nav class="d-flex justify-content-between align-items-center my-3">
+                <a class="btn btn-primary me-2 fs-1" :class="(current_page === 1 ? 'disabled' : '')"
+                    @click.prevent="getProjects(current_page = current_page - 1)">
+                    <i class="fa-solid fa-left-long"></i>
+                </a>
+
+                <span class="fs-1">{{ current_page }} </span>
+
+                <a class="btn btn-primary fs-1" :class="(current_page === pages_qty ? 'disabled' : '')"
+                    @click.prevent="getProjects(current_page = current_page + 1)">
+                    <i class="fa-solid fa-right-long"></i>
+                </a>
+            </nav>
         </div>
+
     </section>
 </template>
 
