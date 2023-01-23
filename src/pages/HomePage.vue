@@ -22,14 +22,11 @@ export default {
     },
     methods: {
         getProjects(page) {
-            console.log("PRIMA", page);
-
+            console.log("Paggina", page);
             axios.get(`${store.apiBaseUrl}/api/projects`, { params: { page: page } }).then(resp => {
                 this.projects = resp.data.results.data;
                 this.pages_qty = resp.data.results.last_page;
                 this.elements_qty = resp.data.results.total;
-
-                console.log("quante", this.pages_qty);
             });
         }
     },
@@ -37,7 +34,7 @@ export default {
 </script>
 
 <template>
-    <section class="mt-4">
+    <main class="mt-4">
         <div class="container">
             <h1 class="text-center text-light mb-3">I nostri progetti</h1>
             <div class="row row-cols-3 g-3">
@@ -48,20 +45,20 @@ export default {
 
             <nav class="d-flex justify-content-between align-items-center my-3">
                 <a class="btn btn-primary me-2 fs-1" :class="(current_page === 1 ? 'disabled' : '')"
-                    @click.prevent="getProjects(current_page = current_page - 1)">
+                    @click.prevent="getProjects(--current_page)">
                     <i class="fa-solid fa-left-long"></i>
                 </a>
 
-                <span class="fs-1">{{ current_page }} </span>
+                <span class="fs-1 px-3 rounded-circle bg-secondary text-light">{{ current_page }} </span>
 
                 <a class="btn btn-primary fs-1" :class="(current_page === pages_qty ? 'disabled' : '')"
-                    @click.prevent="getProjects(current_page = current_page + 1)">
+                    @click.prevent="getProjects(++current_page)">
                     <i class="fa-solid fa-right-long"></i>
                 </a>
             </nav>
         </div>
 
-    </section>
+    </main>
 </template>
 
 <style lang="scss">

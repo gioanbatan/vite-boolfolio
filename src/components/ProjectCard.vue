@@ -1,6 +1,7 @@
 <script>
 import { store } from '../store';
 
+
 export default {
     name: 'ProjectCard',
     data() {
@@ -12,7 +13,6 @@ export default {
         project: Object,
     }
 }
-
 </script>
 
 <template>
@@ -25,7 +25,8 @@ export default {
         <div class="card-body">
             <h5 class="card-title">{{ project.title }}</h5>
             <p class="card-text">{{ project.description }}</p>
-            <a href="#" class="btn btn-primary">Visualizza</a>
+            <router-link :to="{ name: 'project-show', params: { slug: project.slug } }"
+                class="btn btn-primary">Visualizza</router-link>
         </div>
     </div>
 </template>
