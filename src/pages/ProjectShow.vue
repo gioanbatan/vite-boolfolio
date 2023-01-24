@@ -43,11 +43,17 @@ export default {
                 image</div>
 
             <h4 class="my-3">Descrizione del progetto:</h4>
+        </div>
 
-            <p class="mt-4">{{ project.description }}</p>
+        <div class="container-fluid bg-light">
+            <div class="container">
+                <p class="mt-4 text-dark">{{ project.description }}</p>
+            </div>
+        </div>
 
+        <div class="container">
             <router-link :to="{ name: 'home' }">
-                <i class="fa-solid fa-left-long fs-3 p-1 rounded bg-primary text-light"></i>
+                <i class="fa-solid fa-left-long fs-3 p-1 my-2 rounded bg-primary text-light "></i>
             </router-link>
         </div>
     </main>

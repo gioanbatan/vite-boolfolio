@@ -44,14 +44,14 @@ export default {
             </div>
 
             <nav class="d-flex justify-content-between align-items-center my-3">
-                <a class="btn btn-primary me-2 fs-1" :class="(current_page === 1 ? 'disabled' : '')"
+                <a class="btn btn-primary mb-2 fs-1" :class="(current_page === 1 ? 'disabled' : '')"
                     @click.prevent="getProjects(--current_page)">
                     <i class="fa-solid fa-left-long"></i>
                 </a>
 
                 <span class="fs-1 px-3 rounded-circle bg-secondary text-light">{{ current_page }} </span>
 
-                <a class="btn btn-primary fs-1" :class="(current_page === pages_qty ? 'disabled' : '')"
+                <a class="btn btn-primary mb-2 fs-1" :class="(current_page === pages_qty ? 'disabled' : '')"
                     @click.prevent="getProjects(++current_page)">
                     <i class="fa-solid fa-right-long"></i>
                 </a>

@@ -1,13 +1,13 @@
 <script>
 export default {
-    name: 'AboutUs',
+    name: 'AboutMe',
 }
 </script>
 
 <template>
     <main>
         <div class="container text-center">
-            <h1 class="mt-3">About us</h1>
+            <h1 class="mt-3">About Me</h1>
 
             <p class="mt-3 w-75 border border-info rounded bg-light mx-auto">Dicono di noi che siamo Lorem ipsum dolor
                 sit amet

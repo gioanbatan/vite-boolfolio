@@ -11,14 +11,15 @@ export default {
 
 
 <template>
-  <!-- Header -->
-  <AppHeader />
-  <!-- /Header -->
+  <div class="ms_background">
+    <!-- Header -->
+    <AppHeader />
+    <!-- /Header -->
 
-  <!-- Main -->
-  <router-view></router-view>
-  <!-- /Main -->
-
+    <!-- Main -->
+    <router-view></router-view>
+    <!-- /Main -->
+  </div>
 </template>
 
 
