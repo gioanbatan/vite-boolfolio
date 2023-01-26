@@ -22,7 +22,7 @@ export default {
     },
     methods: {
         getProjects(page) {
-            console.log("Paggina", page);
+            console.log("Pagina", page);
             axios.get(`${store.apiBaseUrl}/api/projects`, { params: { page: page } }).then(resp => {
                 this.projects = resp.data.results.data;
                 this.pages_qty = resp.data.results.last_page;
@@ -49,7 +49,10 @@ export default {
                     <i class="fa-solid fa-left-long"></i>
                 </a>
 
-                <span class="fs-1 px-3 rounded-circle bg-secondary text-light">{{ current_page }} </span>
+                <span class="fs-1 px-3 rounded border align-items-center text-light">Pagina {{ current_page }}
+                    di {{
+                        pages_qty
+                    }}</span>
 
                 <a class="btn btn-primary mb-2 fs-1" :class="(current_page === pages_qty ? 'disabled' : '')"
                     @click.prevent="getProjects(++current_page)">

@@ -46,4 +46,12 @@ header {
         height: 100%;
     }
 }
+
+.router-link-active:not(.navbar-brand) {
+    color: orange;
+}
+
+.router-link-exact-active:not(.navbar-brand) {
+    color: yellow;
+}
 </style>
